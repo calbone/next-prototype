@@ -5,57 +5,53 @@ module.exports = {
     node: true,
   },
   extends: [
-    "eslint:recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:import/typescript",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
+    'eslint:recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:import/typescript',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+    'prettier/@typescript-eslint',
+    'prettier/react',
   ],
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 12,
-    sourceType: "module",
+    sourceType: 'module',
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: ['react', '@typescript-eslint', 'import'],
   settings: {
     react: {
-      version: "detect",
-    },
-    "import/resolver": {
-      node: {
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
-      },
+      version: 'detect',
     },
   },
   rules: {
-    quotes: ["error", "double"],
-    semi: ["error", "always"],
-    "react/no-unescaped-entities": "off",
-    "import/no-unresolved": "off",
-    "import/order": [
-      "error",
+    'react/no-unescaped-entities': 'off',
+    'import/no-unresolved': 'off',
+    'import/order': [
+      'error',
       {
         pathGroups: [
           {
-            pattern: "@/**",
-            group: "external",
-            position: "after",
+            pattern: '@/**',
+            group: 'external',
+            position: 'after',
           },
         ],
-        pathGroupsExcludedImportTypes: ["builtin"],
+        pathGroupsExcludedImportTypes: ['builtin'],
       },
     ],
   },
   overrides: [
     {
       // enable the rule specifically for TypeScript files
-      files: ["*.ts", "*.tsx"],
+      files: ['*.ts', '*.tsx'],
       rules: {
-        "@typescript-eslint/explicit-module-boundary-types": "off",
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
       },
     },
   ],
