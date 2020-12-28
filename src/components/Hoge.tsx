@@ -1,9 +1,7 @@
-import React from "react"
+import React from "react";
 
-const Hoge = ()=> {
-  return (
-    <>Hogeです</>
-  )
-}
+const Hoge = () => {
+  return <>"aaaa"</>;
+};
 
-export default Hoge
+export default Hoge;
