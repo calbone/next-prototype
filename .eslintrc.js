@@ -6,6 +6,9 @@ module.exports = {
   },
   extends: [
     "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
   ],
@@ -18,10 +21,34 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react", "@typescript-eslint"],
+  settings: {
+    react: {
+      version: "detect",
+    },
+    "import/resolver": {
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+      },
+    },
+  },
   rules: {
     quotes: ["error", "double"],
     semi: ["error", "always"],
     "react/no-unescaped-entities": "off",
+    "import/no-unresolved": "off",
+    "import/order": [
+      "error",
+      {
+        pathGroups: [
+          {
+            pattern: "@/**",
+            group: "external",
+            position: "after",
+          },
+        ],
+        pathGroupsExcludedImportTypes: ["builtin"],
+      },
+    ],
   },
   overrides: [
     {
