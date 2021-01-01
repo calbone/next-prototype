@@ -11,6 +11,7 @@
     "lint:conflict": "eslint --print-config .eslintrc.js | eslint-config-prettier 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:es": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:style": "stylelint src/**/*.css",
+    "lint-staged": "lint-staged",
     "lint:typecheck": "tsc --noEmit",
     "postinstall": "typesync"
   },
@@ -55,11 +56,10 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "prettier --write --loglevel=warn",
-      "eslint --fix"
+      "eslint"
     ],
     "src/**/*.css": [
-      "stylelint --fix"
+      "stylelint"
     ]
   }
 }
