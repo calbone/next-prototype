@@ -31,6 +31,7 @@ module.exports = {
   },
   rules: {
     'react/no-unescaped-entities': 'off',
+    'react/prop-types': 'off',
     'import/no-unresolved': 'off',
     'import/order': [
       'error',
