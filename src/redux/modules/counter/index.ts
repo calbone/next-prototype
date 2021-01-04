@@ -2,19 +2,17 @@ import { Actions } from '@/redux/types';
 import { State } from './types';
 
 export const incrementType = 'counter/increment' as const;
-export const deincrementType = 'counter/deincrement' as const;
+export const decrementType = 'counter/decrement' as const;
 
-export const increment = (inc: number) => {
+export const increment = () => {
   return {
-    type: incrementType,
-    payload: inc
+    type: incrementType
   };
 };
 
-export const decrement = (dec: number) => {
+export const decrement = () => {
   return {
-    type: deincrementType,
-    payload: dec
+    type: decrementType
   };
 };
 
@@ -29,7 +27,7 @@ export const reducer = (state: State = initialState, action: Actions): State => 
         ...state,
         count: state.count + 1
       };
-    case deincrementType:
+    case decrementType:
       return {
         ...state,
         count: state.count - 1

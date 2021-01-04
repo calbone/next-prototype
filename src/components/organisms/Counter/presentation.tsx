@@ -2,8 +2,8 @@ import React from 'react';
 
 type Props = {
   myCounter: number;
-  handleCountUp: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  handleCountDown: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  handleCountUp: () => void;
+  handleCountDown: () => void;
 };
 
 const Counter: React.FC<Props> = ({ myCounter, handleCountUp, handleCountDown }) => {
