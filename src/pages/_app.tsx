@@ -1,9 +1,23 @@
 import React from 'react';
 import { /* App,*/ AppProps /*AppContext*/ } from 'next/app';
 import Head from 'next/head';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { Provider } from 'react-redux';
 import { store } from '@/redux/createStore';
 
+const GlobalStyle = createGlobalStyle`
+  body {    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+`;
+
+const theme = {
+  colors: {
+    primary: '#0070f3'
+  }
+};
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <Provider store={store}>
@@ -11,7 +25,10 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <title>My page</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
-      <Component {...pageProps} />
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </Provider>
   );
 };
